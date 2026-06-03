@@ -10,6 +10,7 @@
 | 2 | NumPy: массивы и векторные операции | Выполнена |
 | 3 | CI/CD: SourceCraft Sites + GitHub Actions | Выполнена |
 | 4 | Классификация: Scikit-Learn, credit default | Выполнена |
+| 5 | Регрессия: Scikit-Learn, house prices | Выполнена |
 
 ## Шаблон отчёта
 
