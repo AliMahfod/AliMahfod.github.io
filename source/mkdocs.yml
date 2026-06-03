@@ -1,0 +1,45 @@
+site_name: PyProg2026 — Lab 1
+site_description: PyProg2026 Lab 1 — static site (MkDocs, GitHub Pages)
+site_author: Ali Mahfod
+
+theme:
+  name: material
+  language: ru
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Тёмная тема
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Светлая тема
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+
+nav:
+  - Главная: index.md
+  - Об авторе: about.md
+  - Лабораторные работы:
+    - Обзор: labs/index.md
+    - Лабораторная 1: labs/lab01.md
+    - Лабораторная 2: labs/lab02.md
+    - Лабораторная 3: labs/lab03.md
+    - Лабораторная 4: labs/lab04.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - tables
+  - toc:
+      permalink: true
