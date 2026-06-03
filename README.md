@@ -44,9 +44,7 @@ Run `mkdocs build` from the `source` directory so output is written to `docs/` a
 
 | Item | Link |
 |------|------|
-| Repository (sources) | [https://github.com/AliMahfod/PyProg2026Lab1](https://github.com/AliMahfod/PyProg2026Lab1) |
-| Published site | [https://AliMahfod.github.io/PyProg2026Lab1/](https://AliMahfod.github.io/PyProg2026Lab1/) |
-
-If the repo is named **`AliMahfod.github.io`** instead, the site URL is [https://AliMahfod.github.io/](https://AliMahfod.github.io/) (matches the lab example exactly).
+| Repository (sources) | [https://github.com/AliMahfod/AliMahfod.github.io](https://github.com/AliMahfod/AliMahfod.github.io) |
+| Published site | [https://AliMahfod.github.io/](https://AliMahfod.github.io/) |
 
 **GitHub Pages settings:** Source = **Deploy from a branch**, Branch = **main**, Folder = **/docs**.
