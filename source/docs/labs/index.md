@@ -9,7 +9,7 @@
 | 1 | Статический сайт на MkDocs, GitHub Pages | Выполнена |
 | 2 | NumPy: массивы и векторные операции | Выполнена |
 | 3 | CI/CD: SourceCraft Sites + GitHub Actions | Выполнена |
-| 4 | — | Запланирована |
+| 4 | Классификация: Scikit-Learn, credit default | Выполнена |
 
 ## Шаблон отчёта
 
