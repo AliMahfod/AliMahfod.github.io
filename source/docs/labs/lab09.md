@@ -12,7 +12,7 @@
 
 | Где | Ссылка |
 |-----|--------|
-| SourceCraft (ответ) | [sourcecraft.dev/nphne-hoxasjab/PyProg2026Lab9](https://sourcecraft.dev/nphne-hoxasjab/PyProg2026Lab9) |
+| SourceCraft (ответ) | [sourcecraft.dev/nphne-hoxasjab/pyprog2026lab9](https://sourcecraft.dev/nphne-hoxasjab/pyprog2026lab9) |
 | Шаблон (fork) | [itmo-python-lab-template](https://git.sourcecraft.dev/shaliko9/itmo-python-lab-template) |
 | Notebook | `lab.ipynb` |
 
