@@ -719,6 +719,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#linearsvc-tf-idf-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Лучшая модель (LinearSVC + TF-IDF 1–2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#n-tf-idf-count" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -760,10 +771,38 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Заключение
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Заключение">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Результаты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Выводы
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -855,6 +894,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#linearsvc-tf-idf-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Лучшая модель (LinearSVC + TF-IDF 1–2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#n-tf-idf-count" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -896,10 +946,38 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Заключение
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Заключение">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Результаты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Выводы
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -948,10 +1026,10 @@
 </tr>
 </tbody>
 </table>
-<p>Данные: <code>positive.csv</code>, <code>negative.csv</code> (скачиваются в ноутбуке).</p>
+<p>Данные: <code>positive.csv</code>, <code>negative.csv</code> (скачиваются в ноутбуке через <code>urllib</code>, без <code>!wget</code>). Ноутбук выполнен (<strong>Run All</strong> / <code>nbconvert</code> — exit 0); предпросмотр CSV — через Python (совместимо с Windows).</p>
 <hr />
 <h2 id="_3">Задача<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Классификация русскоязычных твитов по тональности. Корпус: <strong>226 834</strong> записи (после объединения positive + negative). Разбиение <code>train_test_split</code> (<strong>random_state=42</strong>, 25% test → <strong>56 709</strong> тестовых).</p>
+<p>Классификация русскоязычных твитов по тональности. Корпус: <strong>226 834</strong> записи (после объединения positive + negative). Разбиение <code>train_test_split</code> (<strong>random_state=42</strong>, 25% test → <strong>56 709</strong> тестовых: <strong>28 108</strong> negative, <strong>28 601</strong> positive).</p>
 <h2 id="classification_report">Результаты <code>classification_report</code> (прогон кода)<a class="headerlink" href="#classification_report" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -983,6 +1061,11 @@
 <td>0.710</td>
 </tr>
 <tr>
+<td>TF-IDF trigrams + LogisticRegression</td>
+<td>0.640</td>
+<td>0.630</td>
+</tr>
+<tr>
 <td>XGBClassifier + Count unigram (n_estimators=200)</td>
 <td>0.680</td>
 <td>0.680</td>
@@ -999,20 +1082,55 @@
 </tr>
 </tbody>
 </table>
+<p>Метрики в таблице воспроизведены повторным прогоном <code>benchmark_lab7.py</code> на том же split; значения совпадают с выводами ячеек ноутбука.</p>
+<h3 id="linearsvc-tf-idf-12">Лучшая модель (LinearSVC + TF-IDF 1–2)<a class="headerlink" href="#linearsvc-tf-idf-12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Класс</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>negative</td>
+<td>0.79</td>
+<td>0.77</td>
+<td>0.78</td>
+<td>28 108</td>
+</tr>
+<tr>
+<td>positive</td>
+<td>0.78</td>
+<td>0.80</td>
+<td>0.79</td>
+<td>28 601</td>
+</tr>
+<tr>
+<td><strong>accuracy</strong></td>
+<td></td>
+<td></td>
+<td><strong>0.78</strong></td>
+<td>56 709</td>
+</tr>
+</tbody>
+</table>
 <h3 id="n-tf-idf-count">Сравнение n-грамм (TF-IDF / Count)<a class="headerlink" href="#n-tf-idf-count" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Униграммы</strong> дают лучший баланс precision/recall (~<strong>0.77</strong> accuracy).</li>
-<li><strong>Триграммы</strong> Count: accuracy падает до ~<strong>0.64</strong> (как в борде для 3-грамм).</li>
+<li><strong>Триграммы</strong> (Count и TF-IDF): accuracy ~<strong>0.64</strong>, F1 weighted ~<strong>0.63</strong>.</li>
 <li><strong>Пентаграммы</strong> Count: ~<strong>0.55</strong> accuracy — сильный разброс классов, модель хуже обобщает.</li>
 <li><strong>TF-IDF биграммы:</strong> F1 weighted ~<strong>0.71</strong> — ниже униграмм (~0.75–0.77), но выше пентаграмм.</li>
-<li><strong>TF-IDF триграммы:</strong> ~<strong>0.64</strong> — близко к Count 3-gram.</li>
 </ul>
 <h3 id="_4">Самостоятельная работа<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>LogisticRegression</strong> + униграммы — см. таблицу (эталон борда ~0.77).</li>
 <li><strong>XGBClassifier</strong> с параметрами из задания (<code>learning_rate=0.1</code>, <code>max_depth=5</code>, …; <code>n_estimators=200</code> в ноутбуке для времени, в задании указано 1000).</li>
-<li><strong>LinearSVC</strong> + TF-IDF (1,2) — лучший результат в таблице (<strong>~0.78</strong>).</li>
-<li>TF-IDF <strong>биграммы</strong> и <strong>триграммы</strong> — отдельные ячейки в ноутбуке; F1 ниже униграмм, выше пентаграмм.</li>
+<li><strong>LinearSVC</strong> + TF-IDF (1,2) — лучший результат в таблице (<strong>0.78</strong> accuracy / F1 weighted).</li>
+<li>TF-IDF <strong>биграммы</strong> и <strong>триграммы</strong> — отдельные ячейки в ноутбуке.</li>
 </ol>
 <h2 id="_5">Особенности борда (кратко)<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1021,12 +1139,19 @@
 <li><strong>Символьные n-граммы</strong> (<code>analyzer='char'</code>) — работают без морфологии.</li>
 <li><strong>pymorphy3</strong> — лемматизация по словам (<code>MorphAnalyzer</code>).</li>
 </ul>
-<h2 id="_6">Выводы<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">Заключение<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">Результаты<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Все задания <strong>#2–#21</strong> выполнены; TODO в ноутбуке нет.</li>
+<li>Код <strong>успешно выполняется</strong> от загрузки CSV до отчётов <code>classification_report</code> и самостоятельной работы.</li>
+<li>На тесте лучший результат: <strong>LinearSVC + TF-IDF (1–2)</strong> — accuracy и F1 weighted <strong>0.78</strong>.</li>
+</ul>
+<h3 id="_8">Выводы<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Для русских твитов сильный baseline — <strong>униграммы + LogisticRegression</strong> или <strong>TF-IDF + LinearSVC</strong>.</li>
 <li>Слишком длинные n-граммы (5+) ухудшают качество из-за разреженности и переобучения.</li>
 <li>Эмоциональная пунктуация — мощный, но «нечестный» признак; на практике её убирают или учитывают осознанно.</li>
-<li>Полный код, графики и отчёты <code>classification_report</code> — в ноутбуке.</li>
+<li>Полный код, графики и отчёты — в <a href="https://github.com/AliMahfod/PyProg2026Lab7/blob/main/s6p1_group1.ipynb">ноутбуке</a>.</li>
 </ul>
 
 
