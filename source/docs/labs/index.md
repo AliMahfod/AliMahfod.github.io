@@ -11,6 +11,7 @@
 | 3 | CI/CD: SourceCraft Sites + GitHub Actions | Выполнена |
 | 4 | Классификация: Scikit-Learn, credit default | Выполнена |
 | 5 | Регрессия: Scikit-Learn, house prices | Выполнена |
+| 6 | Очистка данных: pandas, Titanic | Выполнена |
 
 ## Шаблон отчёта
 
