@@ -742,6 +742,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Агрегация и анализ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Среднее выживание по классу (Pclass)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pclass-sex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выживание по Pclass и Sex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embarked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Медианный возраст по порту (Embarked)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -752,6 +791,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Метрики качества очистки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#survived" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Корреляция с Survived (новые / числовые признаки)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -933,6 +989,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Агрегация и анализ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Среднее выживание по классу (Pclass)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pclass-sex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выживание по Pclass и Sex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embarked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Медианный возраст по порту (Embarked)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -943,6 +1038,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Метрики качества очистки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#survived" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Корреляция с Survived (новые / числовые признаки)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1030,43 +1142,105 @@
 </tr>
 </tbody>
 </table>
-<p>Файлы: <code>train.csv</code> (исходные данные), <code>titanic_cleaned.csv</code> (результат обработки).</p>
+<p>Файлы: <code>train.csv</code> (исходные данные), <code>titanic_cleaned.csv</code> (результат обработки). Ноутбук выполнен (<strong>Run All</strong> / <code>nbconvert</code> — exit 0).</p>
 <hr />
 <h2 id="_3">Введение<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>В работе выполнен полный цикл предобработки: EDA, заполнение пропусков, инженерия признаков, обработка выбросов, агрегация и метрики качества. Все шаги и графики — в ноутбуке.</p>
+<p>Выполнен полный цикл предобработки: EDA, заполнение пропусков, инженерия признаков, обработка выбросов, агрегация и метрики качества. Ниже — <strong>численные результаты</strong> прогона; графики (гистограммы, пропуски, boxplot Fare, heatmap корреляций) — в ноутбуке.</p>
 <h2 id="_4">Описание набора данных<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>891 пассажир, 12 исходных столбцов (<code>PassengerId</code>, <code>Survived</code>, <code>Pclass</code>, <code>Name</code>, <code>Sex</code>, <code>Age</code>, <code>SibSp</code>, <code>Parch</code>, <code>Ticket</code>, <code>Fare</code>, <code>Cabin</code>, <code>Embarked</code>).</p>
+<p><strong>891</strong> пассажир, <strong>12</strong> исходных столбцов. Целевой признак для анализа: <code>Survived</code> (0/1).</p>
 <h2 id="_5">Первичный анализ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Первые 10 строк, типы столбцов, <code>describe()</code> для числовых признаков.</li>
-<li><strong>Пропуски:</strong> <code>Cabin</code> — 687, <code>Age</code> — 177, <code>Embarked</code> — 2; остальные столбцы без NaN.</li>
-<li><strong>Age:</strong> среднее ≈ 29.7, медиана = 28.0 (до заполнения).</li>
-<li>Гистограммы числовых признаков; <strong>barplot</strong> и <strong>heatmap</strong> пропусков (см. ноутбук).</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Столбец</th>
+<th>Пропусков</th>
+<th>% от 891</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cabin</td>
+<td>687</td>
+<td>77.1%</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>177</td>
+<td>19.9%</td>
+</tr>
+<tr>
+<td>Embarked</td>
+<td>2</td>
+<td>0.2%</td>
+</tr>
+<tr>
+<td>Остальные</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Age (до imputation):</strong> среднее <strong>29.70</strong>, медиана <strong>28.0</strong>.</p>
+<p>Визуализации в ноутбуке: гистограммы числовых признаков, barplot пропусков, heatmap матрицы NaN.</p>
 <h2 id="_6">Обработка пропусков<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Столбец</th>
 <th>Метод</th>
+<th>Результат</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Age</strong></td>
-<td>Медиана (~28 лет); затем признак <strong>Age_group</strong> (Child / Teen / Young / Adult / Senior)</td>
+<td>Медиана <strong>28.0</strong></td>
+<td>Создан <strong>Age_group</strong> (см. распределение ниже)</td>
 </tr>
 <tr>
 <td><strong>Embarked</strong></td>
-<td>Мода (<strong>S</strong>)</td>
+<td>Мода <strong>S</strong></td>
+<td>2 пропуска заполнены</td>
 </tr>
 <tr>
 <td><strong>Cabin</strong></td>
-<td>Удалён; создан <strong>CabinLetter</strong> (первая буква каюты, <strong>U</strong> = unknown)</td>
+<td>Первая буква → <strong>CabinLetter</strong>, NaN → <strong>U</strong></td>
+<td>Столбец <code>Cabin</code> удалён</td>
 </tr>
 </tbody>
 </table>
-<p>После imputation пропусков в рабочих столбцах не остаётся.</p>
+<p><strong>Age_group</strong> (после заполнения Age):</p>
+<table>
+<thead>
+<tr>
+<th>Группа</th>
+<th>Пассажиров</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Young</td>
+<td>535</td>
+</tr>
+<tr>
+<td>Adult</td>
+<td>195</td>
+</tr>
+<tr>
+<td>Teen</td>
+<td>70</td>
+</tr>
+<tr>
+<td>Child</td>
+<td>69</td>
+</tr>
+<tr>
+<td>Senior</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Уникальных букв кают (CabinLetter):</strong> 9 (включая U).</p>
 <h2 id="_7">Трансформация данных<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1078,11 +1252,11 @@
 <tbody>
 <tr>
 <td><strong>Pclass</strong></td>
-<td>1→F, 2→S, 3→T (строковый категориальный тип)</td>
+<td>1→<strong>F</strong>, 2→<strong>S</strong>, 3→<strong>T</strong></td>
 </tr>
 <tr>
 <td><strong>Title</strong></td>
-<td>Из <code>Name</code> (Mr, Mrs, Miss, …)</td>
+<td>Из <code>Name</code> (топ: Mr <strong>517</strong>, Miss <strong>182</strong>, Mrs <strong>125</strong>, Master <strong>40</strong>) — <strong>17</strong> уникальных титулов</td>
 </tr>
 <tr>
 <td><strong>Sex_num</strong></td>
@@ -1094,41 +1268,180 @@
 </tr>
 <tr>
 <td><strong>IsAlone</strong></td>
-<td>1, если FamilySize = 1</td>
+<td>1 если FamilySize = 1 → <strong>60.3%</strong> пассажиров одни</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_8">Обработка выбросов<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Fare:</strong> boxplot, выбросы по <strong>IQR</strong> — <strong>116</strong> записей вне границ 1.5×IQR.</li>
-<li><strong>Fare:</strong> winsorization (5% с каждой стороны).</li>
-<li><strong>Age:</strong> значения выше <strong>95-го перцентиля</strong> ограничены (winsor-style cap).</li>
-</ul>
+<p><strong>Fare (IQR):</strong> Q1≈7.91, Q3≈31.00, границы <strong>[−26.72; 65.63]</strong> → <strong>116</strong> выбросов по правилу 1.5×IQR.</p>
+<p><strong>После winsorization Fare (5%):</strong> min <strong>7.22</strong>, max <strong>113.28</strong>.</p>
+<p><strong>Age:</strong> 95-й перцентиль = <strong>54.0</strong> лет; <strong>42</strong> значения ограничены сверху.</p>
 <h2 id="_9">Агрегация и анализ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Средняя доля <strong>Survived</strong> по классу: <strong>F</strong> ≈ 63.0%, <strong>S</strong> ≈ 47.3%, <strong>T</strong> ≈ 24.2%.</li>
-<li>Группировка по <strong>Pclass</strong> и <strong>Sex</strong> — таблица <code>survived_rate</code>, <code>mean_fare</code>.</li>
-<li>Медианный <strong>Age</strong> по <strong>Embarked</strong>.</li>
-<li>Сводная <strong>выживаемость</strong> по <strong>Title</strong> и <strong>IsAlone</strong> (<code>pivot_table</code>).</li>
-<li>Результат сохранён в <strong><code>titanic_cleaned.csv</code></strong>.</li>
-</ul>
+<h3 id="pclass">Среднее выживание по классу (Pclass)<a class="headerlink" href="#pclass" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Класс</th>
+<th>Доля Survived</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F (1-й)</td>
+<td><strong>62.96%</strong></td>
+</tr>
+<tr>
+<td>S (2-й)</td>
+<td><strong>47.28%</strong></td>
+</tr>
+<tr>
+<td>T (3-й)</td>
+<td><strong>24.24%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="pclass-sex">Выживание по Pclass и Sex<a class="headerlink" href="#pclass-sex" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Pclass</th>
+<th>Sex</th>
+<th>Survived</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>female</td>
+<td><strong>96.8%</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>male</td>
+<td>36.9%</td>
+</tr>
+<tr>
+<td>S</td>
+<td>female</td>
+<td><strong>92.1%</strong></td>
+</tr>
+<tr>
+<td>S</td>
+<td>male</td>
+<td>15.7%</td>
+</tr>
+<tr>
+<td>T</td>
+<td>female</td>
+<td>50.0%</td>
+</tr>
+<tr>
+<td>T</td>
+<td>male</td>
+<td>13.5%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="embarked">Медианный возраст по порту (Embarked)<a class="headerlink" href="#embarked" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Порт</th>
+<th>Медиана Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td>28.0</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>28.0</td>
+</tr>
+<tr>
+<td>S</td>
+<td>28.0</td>
+</tr>
+</tbody>
+</table>
+<p>Сводная <strong>Survived</strong> по <strong>Title</strong> × <strong>IsAlone</strong> — <code>pivot_table</code> в ноутбуке.</p>
+<p><strong>Файл:</strong> <code>titanic_cleaned.csv</code> — <strong>891</strong> строк, без NaN в используемых полях.</p>
 <h2 id="_10">Метрики качества очистки<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>100%</strong> заполненных ячеек после обработки (без NaN в используемых полях).</li>
-<li>Число уникальных категорий: Pclass (3), Title (~17), CabinLetter, Age_group (5), и др. — в ноутбуке.</li>
-<li><strong>Корреляция</strong> новых числовых признаков с <code>Survived</code> (heatmap): положительная связь <code>Sex_num</code>, <code>Fare</code>; отрицательная — <code>Pclass</code> (как число до map) не используется после F/S/T.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Метрика</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доля заполненных ячеек</td>
+<td><strong>100%</strong></td>
+</tr>
+<tr>
+<td>Уникальных Pclass</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Уникальных Title</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Уникальных Age_group</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Уникальных CabinLetter</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<h3 id="survived">Корреляция с Survived (новые / числовые признаки)<a class="headerlink" href="#survived" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Признак</th>
+<th>corr(Survived)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sex_num</td>
+<td><strong>+0.543</strong></td>
+</tr>
+<tr>
+<td>Fare</td>
+<td>+0.312</td>
+</tr>
+<tr>
+<td>IsAlone</td>
+<td>−0.203</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>−0.062</td>
+</tr>
+<tr>
+<td>FamilySize</td>
+<td>+0.017</td>
+</tr>
+</tbody>
+</table>
+<p>Heatmap полной матрицы — в ноутбуке.</p>
 <h2 id="_11">Заключение<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <h3 id="_12">Результаты<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Освоены <code>fillna</code>, <code>cut</code>, <code>map</code>, <code>groupby</code>, <code>pivot_table</code>, визуализация пропусков и выбросов.</li>
-<li>Построен воспроизводимый пайплайн очистки с сохранением результата в CSV.</li>
+<li>Код ноутбука <strong>успешно выполняется</strong> от загрузки CSV до сохранения <code>titanic_cleaned.csv</code>.</li>
+<li>Освоены <code>fillna</code>, <code>cut</code>, <code>map</code>, <code>groupby</code>, <code>pivot_table</code>, IQR, winsorization, визуализация пропусков и выбросов.</li>
 </ul>
 <h3 id="_13">Выводы<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Большая доля пропусков в <strong>Cabin</strong> → разумно кодировать буквой палубы, а не удалять строки.</li>
-<li><strong>Age</strong> и <strong>Fare</strong> сильно влияют на интерпретацию; медиана и winsorization стабилизируют распределения.</li>
-<li>Агрегации подтверждают известные закономерности Titanic: выше выживаемость в 1-м классе и у женщин.</li>
+<li>Пропуски в <strong>Cabin</strong> доминируют → признак <strong>CabinLetter</strong> информативнее полного номера каюты.</li>
+<li><strong>Пол</strong> и <strong>класс</strong> сильнее всего связаны с выживанием (до <strong>96.8%</strong> у женщин 1-го класса).</li>
+<li><strong>Fare</strong> и <strong>IsAlone</strong> дополняют картину (корреляция с <code>Survived</code> +0.31 и −0.20).</li>
+<li>Пайплайн воспроизводим: те же цифры получаются при повторном <strong>Run All</strong>.</li>
 </ul>
 
 
