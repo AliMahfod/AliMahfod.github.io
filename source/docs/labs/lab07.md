@@ -13,8 +13,8 @@
 | Где | Ссылка |
 |-----|--------|
 | Репозиторий | [github.com/AliMahfod/PyProg2026Lab7](https://github.com/AliMahfod/PyProg2026Lab7) |
-| Ноутбук | [s6p1_group1.ipynb](https://github.com/AliMahfod/PyProg2026Lab7/blob/main/s6p1_group1.ipynb) |
-| Просмотр (nbviewer) | [nbviewer — Lab 7](https://nbviewer.org/github/AliMahfod/PyProg2026Lab7/blob/main/s6p1_group1.ipynb) |
+| Ноутбук | [s6p1_group1.ipynb](https://github.com/AliMahfod/PyProg2026Lab7/blob/8c505d4/s6p1_group1.ipynb) |
+| Просмотр (nbviewer) | [nbviewer — Lab 7](https://nbviewer.org/github/AliMahfod/PyProg2026Lab7/blob/8c505d4/s6p1_group1.ipynb) |
 
 Данные: `positive.csv`, `negative.csv` (скачиваются в ноутбуке через `urllib`, без `!wget`). Ноутбук выполнен (**Run All** / `nbconvert` — exit 0); предпросмотр CSV — через Python (совместимо с Windows).
 
