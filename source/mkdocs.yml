@@ -1,6 +1,7 @@
-site_name: PyProg2026 — Lab 1
-site_description: PyProg2026 Lab 1 — static site (MkDocs, GitHub Pages)
+site_name: PyProg2026 — Portfolio
+site_description: PyProg2026 — portfolio (MkDocs, GitHub Pages, SourceCraft)
 site_author: Ali Mahfod
+site_url: https://AliMahfod.github.io/
 
 theme:
   name: material
