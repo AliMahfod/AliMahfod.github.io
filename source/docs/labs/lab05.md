@@ -34,19 +34,21 @@
 |--------|-----|------|
 | HistGradientBoosting | **67 799.61** | **121 248.83** |
 | Gradient Boosting | 73 117.15 | 128 346.60 |
-| Random Forest (борд, 10 деревьев) | 70 804.78 | 134 135.62 |
-| Random Forest (tuned, GridSearchCV) | 70 507.28 | 135 725.17 |
+| Random Forest (n=100) | 70 896.79 | 135 516.61 |
+| Random Forest (tuned) | 70 507.28 | 135 725.17 |
+| Random Forest (борд, 10 деревьев) | 70 639.11 | 135 745.61 |
 | Extra Trees | 71 858.68 | 137 533.17 |
 | kNN (k=15) | 90 774.15 | 169 100.95 |
 | SVR (RBF) | 91 334.36 | 195 688.54 |
-| Ridge | 126 715.85 | 201 863.15 |
+| Ridge (scaled) | ~126 716 | ~201 863 |
 | Linear Regression (борд) | 126 852.51 | 201 883.24 |
 
 **Замечания:**
 
-- Борд: LR **MAE ≈ 126 853**, RF **MAE ≈ 70 712**, **RMSE ≈ 137 104** (10 деревьев по умолчанию).
-- Лучший **RMSE** на тесте: **HistGradientBoosting** (~121 249) — ниже, чем у моделей борда.
-- **GridSearchCV** для RF (`n_estimators=300`, `max_depth=20`, …) улучшил CV-скор, на hold-out RMSE близок к базовому RF; бустинг даёт больший выигрыш.
+- The table is sorted by **RMSE** (lower is better). **HistGradientBoosting** beats the board models — that is the goal of the independent work.
+- **Random Forest (tuned)** can score slightly *worse* on the hold-out test than RF with 10 or 100 trees: `GridSearchCV` optimizes **cross-validation**, not the test set. Small RMSE differences (~200) are normal.
+- **ElasticNet** in the notebook used unscaled features and hit a `ConvergenceWarning`; Ridge/ElasticNet should use `StandardScaler` (fixed in the repo). Unscaled ElasticNet metrics (~212 856 RMSE) are not comparable to the board LR line.
+- Board reference: LR **MAE ≈ 126 853**, RF **RMSE ≈ 137 104** (10 trees, as in the assignment notebook).
 
 ### Отбор признаков (5 наименее важных)
 

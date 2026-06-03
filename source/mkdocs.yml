@@ -35,6 +35,7 @@ nav:
     - Лабораторная 2: labs/lab02.md
     - Лабораторная 3: labs/lab03.md
     - Лабораторная 4: labs/lab04.md
+    - Лабораторная 5: labs/lab05.md
 
 markdown_extensions:
   - admonition
